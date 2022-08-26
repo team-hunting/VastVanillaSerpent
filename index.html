@@ -1,9 +1,72 @@
+
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>This is the title of the webpage!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+<script src="urlgenerator.js"></script> 
+<link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title> Searcher </title>
   </head>
   <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    
+    <div id="parent" class="container center min-vw-100 min-vh-100 d-flex" style="background-color: #eee;">
+
+      <h1 class="center title">Search Your Favorite Sites</h1>
+      <br>
+
+      <div class="center input">
+        <input type="text" id="search_term" name="search_term"><br><br>
+      </div>
+      
+      <div class="center input">
+      <input type="checkbox" id="software" name="software">
+      <label for="software">Software</label>
+
+      <input type="checkbox" id="games" name="games">
+      <label for="games">Games</label>
+
+      <input type="checkbox" id="movies" name="movies">
+      <label for="movies">Movies</label> 
+
+      <br>
+
+      <input type="checkbox" id="ebooks" name="ebooks">
+      <label for="ebooks">Ebooks</label>
+
+      <input type="checkbox" id="audiobooks" name="audiobooks">
+      <label for="audiobooks">Audiobooks</label>
+
+      <input type="checkbox" id="anime" name="anime">
+      <label for="anime">Anime</label>
+      </div>
+      
+      <div class="center">
+        <br>
+      <button id="search_button" class="button center" onclick="runSearch()">Search</button>
+      </div>
+
+      <script>
+        let input = document.getElementById("search_term");
+        input.addEventListener("keyup", function(event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("search_button").click();
+          }
+        }); 
+      </script>
+
+    </div>
+
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
