@@ -54,6 +54,7 @@ const classNames = {
         case "games":
         return [
           "https://fitgirl-repacks.site/?s="+search_term,
+          "https://dodi-repacks.site/?s="+search_term,
           "https://igg-games.com/?s="+search_term,
           "https://www.skidrowreloaded.com/?s="+search_term+"&x=20&y=13",
           "https://1337x.to/search/"+search_term+"/1/"
@@ -66,7 +67,9 @@ const classNames = {
   
   function runSearch()
   {
-    let search_term = document.getElementById(classNames['search_box']).value.replace(" ", "+");
+    let search_term = document.getElementById(classNames['search_box']).value;
+    search_term = search_term.trim();
+    search_term = search_term.replace(" ", "+");
   
     let movies = document.getElementById("movies").checked;
     let software = document.getElementById("software").checked;
