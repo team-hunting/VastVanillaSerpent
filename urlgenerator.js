@@ -31,14 +31,16 @@ const classNames = {
           "https://ebooksduck.com/?s="+search_term,
           "https://3lib.net/s/" + search_term.replace("+", "%20"),
           "http://libgen.rs/search.php?req="+search_term+"&open=0&res=25&view=simple&phrase=1&column=def",
-          "https://libgen.is/search.php?req=" + search_term + "&open=0&res=100&view=simple&phrase=1&column=def"
+          "https://libgen.is/search.php?req=" + search_term + "&open=0&res=100&view=simple&phrase=1&column=def",
+          "https://annas-archive.org/search?q=" + search_term
         ]
         break;
         case "textbooks":
         return [
           "http://libgen.rs/search.php?req="+search_term+"&open=0&res=25&view=simple&phrase=1&column=def",
           "https://libgen.is/search.php?req=" + search_term + "&open=0&res=100&view=simple&phrase=1&column=def",
-          "https://3lib.net/s/" + search_term.replace("+", "%20")
+          "https://3lib.net/s/" + search_term.replace("+", "%20"),
+          "https://annas-archive.org/search?q=" + search_term
         ]
         break;
         case "audiobooks":
