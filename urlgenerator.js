@@ -66,9 +66,23 @@ const classNames = {
           break;
     }
   }
+
+  linksToOpen = []
+
+  function openLinksInNewTabs() 
+  {
+    // For link in linksToOpen, open each link in new tab
+    linksToOpen.forEach(function(link) {
+      window.open(link, "_blank")
+    })
+  }
   
   function runSearch()
   {
+    // Clear Links
+    linksToOpen = []
+    document.getElementById("openlinks_button").style.display = 'block'
+
     let search_term = document.getElementById(classNames['search_box']).value;
     search_term = search_term.trim();
     search_term = search_term.replace(" ", "+");
@@ -99,8 +113,7 @@ const classNames = {
     notice.innerHTML = notice.innerHTML + "Note: You may need to create a free account on some of these sites.";
     // notice.innerHTML = notice.innerHTML + "\n You may need to click the 'Anime' box to retrieve anime results.";
     output_section.appendChild(notice);
-    
-  
+
     if (software) { 
       genSection(search_term,output_section,"software") 
       //let dturk = postAndReturn("https://www.downturk.net/")
@@ -162,6 +175,9 @@ const classNames = {
   
     generateUrlArray(search_term,category).forEach(function(url) 
     {
+      // Add link to linksToOpen
+      linksToOpen.push(url)
+
       let li = document.createElement('li'); 
       ul.appendChild(li);
       addElement(li,"a",url);
