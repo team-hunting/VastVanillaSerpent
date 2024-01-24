@@ -8,6 +8,8 @@ const classNames = {
   function generateUrlArray(search_term,category) {
 
     let search_term_html = search_term.replace("+", "%20");
+    let search_term_dash = search_term.replace("+", "-");
+    let search_term_first_letter = search_term.charAt(0);
 
     switch(category) {
       case "software":
@@ -30,8 +32,8 @@ const classNames = {
         return [
           "https://forum.mobilism.org/search.php?keywords="+search_term+"&fid%5B%5D=0&sc=1&sr=topics&sf=titleonly",
           "https://pdfduck.com/?s="+search_term,
-          "https://booksvooks.com/search.html?q="+search_term,
-          "https://ebooksduck.com/?s="+search_term,
+          // "https://booksvooks.com/search.html?q="+search_term, // Appears down
+          // "https://ebooksduck.com/?s="+search_term, // No longer up
           // "https://3lib.net/s/" + search_term.replace("+", "%20"), // Seized by FBI lol
           "http://libgen.rs/search.php?req="+search_term+"&open=0&res=25&view=simple&phrase=1&column=def",
           "https://libgen.is/search.php?req=" + search_term + "&open=0&res=100&view=simple&phrase=1&column=def",
@@ -72,6 +74,12 @@ const classNames = {
           "https://massgrave.dev",
         ]
         break;
+        case "torrents":
+        return [
+          "https://www.magnetdl.com/" + search_term_first_letter + "/" + search_term_dash,
+          "https://1337x.to/search/" + search_term + "/1/",
+          "https://torrentgalaxy.to/torrents.php?search=" + search_term + "&lang=0&nox=2#results",        ]
+        break;
         default:
           break;
     }
@@ -105,6 +113,7 @@ const classNames = {
     let anime = document.getElementById("anime").checked;
     let games = document.getElementById("games").checked;
     let microsoft = document.getElementById("microsoft").checked;
+    let torrents = document.getElementById("torrents").checked;
     
   
     let output_exists = document.getElementById("results");
@@ -139,6 +148,7 @@ const classNames = {
     if (audiobooks) { genSection(search_term,output_section,"audiobooks") }
     if (anime) { genSection(search_term,output_section,"anime") }
     if (microsoft) { genSection(search_term,output_section,"microsoft") }
+    if (torrents) { genSection(search_term,output_section,"torrents") }
   
     // dturk.onload = function() {
     //   console.log("HELLO")
