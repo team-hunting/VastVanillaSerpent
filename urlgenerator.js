@@ -6,6 +6,9 @@ const classNames = {
   const categories = ["software","movies","ebooks","textbooks","audiobooks","anime","games","torrent"]
   
   function generateUrlArray(search_term,category) {
+
+    let search_term_html = search_term.replace("+", "%20");
+
     switch(category) {
       case "software":
         return [
@@ -19,7 +22,7 @@ const classNames = {
         break;
         case "movies":
         return [
-          "https://snahp.it/?s="+search_term,
+          // "https://snahp.it/?s="+search_term, // No longer valid site
           "https://1337x.to/search/"+search_term+"/1/"
         ]
         break;
@@ -29,9 +32,10 @@ const classNames = {
           "https://pdfduck.com/?s="+search_term,
           "https://booksvooks.com/search.html?q="+search_term,
           "https://ebooksduck.com/?s="+search_term,
-          "https://3lib.net/s/" + search_term.replace("+", "%20"),
+          // "https://3lib.net/s/" + search_term.replace("+", "%20"), // Seized by FBI lol
           "http://libgen.rs/search.php?req="+search_term+"&open=0&res=25&view=simple&phrase=1&column=def",
           "https://libgen.is/search.php?req=" + search_term + "&open=0&res=100&view=simple&phrase=1&column=def",
+          "https://z-lib.io/s/" + search_term_html,
           "https://annas-archive.org/search?q=" + search_term
         ]
         break;
@@ -62,6 +66,11 @@ const classNames = {
           "https://1337x.to/search/"+search_term+"/1/"
         ]
         break;
+        case "microsoft":
+        return [
+          "https://massgrave.dev",
+        ]
+        break;
         default:
           break;
     }
@@ -86,13 +95,15 @@ const classNames = {
     let search_term = document.getElementById(classNames['search_box']).value;
     search_term = search_term.trim();
     search_term = search_term.replace(" ", "+");
-  
+    
+
     let movies = document.getElementById("movies").checked;
     let software = document.getElementById("software").checked;
     let ebooks = document.getElementById("ebooks").checked;
     let audiobooks = document.getElementById("audiobooks").checked;
     let anime = document.getElementById("anime").checked;
     let games = document.getElementById("games").checked;
+    let microsoft = document.getElementById("microsoft").checked;
     
   
     let output_exists = document.getElementById("results");
@@ -126,6 +137,7 @@ const classNames = {
     }
     if (audiobooks) { genSection(search_term,output_section,"audiobooks") }
     if (anime) { genSection(search_term,output_section,"anime") }
+    if (microsoft) { genSection(search_term,output_section,"microsoft") }
   
     // dturk.onload = function() {
     //   console.log("HELLO")
