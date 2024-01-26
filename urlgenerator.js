@@ -7,8 +7,8 @@ const classNames = {
   
   function generateUrlArray(search_term,category) {
 
-    let search_term_html = search_term.replace("+", "%20");
-    let search_term_dash = search_term.replace("+", "-");
+    let search_term_html = search_term.replaceAll("+", "%20");
+    let search_term_dash = search_term.replaceAll("+", "-");
     let search_term_first_letter = search_term.charAt(0);
 
     switch(category) {
@@ -103,7 +103,7 @@ const classNames = {
 
     let search_term = document.getElementById(classNames['search_box']).value;
     search_term = search_term.trim();
-    search_term = search_term.replace(" ", "+");
+    search_term = search_term.replaceAll(" ", "+");
     
 
     let movies = document.getElementById("movies").checked;
