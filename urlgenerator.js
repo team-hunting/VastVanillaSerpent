@@ -76,7 +76,7 @@ const classNames = {
         break;
         case "torrents":
         return [
-          "https://www.magnetdl.com/" + search_term_first_letter + "/" + search_term_dash,
+          "https://www.magnetdl.com/" + search_term_first_letter.toLowerCase() + "/" + search_term_dash.toLowerCase(),
           "https://1337x.to/search/" + search_term + "/1/",
           "https://torrentgalaxy.to/torrents.php?search=" + search_term + "&lang=0&nox=2#results",        ]
         break;
