@@ -66,6 +66,9 @@ const classNames = {
           "https://dodi-repacks.site/?s="+search_term,
           "https://igg-games.com/?s="+search_term,
           "https://www.skidrowreloaded.com/?s="+search_term+"&x=20&y=13",
+          "https://gog-games.to/?q="+search_term,
+          "https://steamrip.com/?s="+search_term,
+          "https://www.ovagames.com/?s="+search_term,
           "https://1337x.to/search/"+search_term+"/1/"
         ]
         break;
